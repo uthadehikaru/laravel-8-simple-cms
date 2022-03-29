@@ -40,8 +40,8 @@ class CategoryDataTable extends DataTableController
     {
         return $this->applyScopes(
             Category::leftJoin('articles', 'categories.id', '=', 'articles.category_id')
-                ->selectRaw('categories.*, count(articles.id) as article_count')
-                ->groupBy('categories.id')
+                ->selectRaw('categories.id, categories.title, categories.created_at, categories.updated_at, count(articles.id) as article_count')
+                ->groupBy('categories.id','categories.title','categories.created_at', 'categories.updated_at')
         );
     }
 }

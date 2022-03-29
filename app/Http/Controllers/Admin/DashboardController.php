@@ -7,6 +7,7 @@ use Analytics;
 use App\Base\Services\AlexaService;
 use Carbon\Carbon;
 use Spatie\Analytics\Period;
+use Illuminate\Http\Request;
 
 class DashboardController extends AdminController
 {
@@ -49,6 +50,16 @@ class DashboardController extends AdminController
         }
         $this->flashRaw(__('admin.invalid'));
         return redirect(route('admin.user.index'));
+    }
+
+    public function upload(Request $request){
+        $path = $request->file('fileToUpload')->store('','uploads');
+        $data = [
+            'success' => true,
+            'file'=> asset('i/uploads/'.$path),
+        ];
+
+        return json_encode($data);
     }
 
     /**
