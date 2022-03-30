@@ -149,6 +149,19 @@ if (!function_exists('getFooterArticles')) {
     }
 }
 
+if (!function_exists('getCategories')) {
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
+    function getCategories()
+    {
+        return cache()->remember('categories', 60, function () {
+            return \App\Models\Category::all();
+        });
+    }
+}
+
 if (!function_exists('active')) {
     /**
      * @param object $object

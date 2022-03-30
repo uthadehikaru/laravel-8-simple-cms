@@ -11,8 +11,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Paginator::defaultView('pagination::bulma');
-        Paginator::defaultSimpleView('pagination::simple-bulma');
+        Paginator::useBootstrap();
     }
 
     /**

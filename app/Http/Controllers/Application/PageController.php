@@ -15,7 +15,7 @@ class PageController extends Controller
      */
     public function getIndex()
     {
-        return view('app.articles', [
+        return view('themes.editorial.home', [
             'title' => getTitle(),
             'description' => getDescription(),
             'articles' => Article::published()->paginate(4)
@@ -29,7 +29,7 @@ class PageController extends Controller
      */
     public function getCategory(Category $category)
     {
-        return view('app.articles', [
+        return view('themes.editorial.articles', [
             'title' => $category->title,
             'description' => $category->description,
             'articles' => Article::where('category_id', $category->id)->paginate(4)
@@ -43,7 +43,7 @@ class PageController extends Controller
      */
     public function getPage(Page $page)
     {
-        return view('app.content', ['object' => $page]);
+        return view('themes.editorial.content', ['object' => $page]);
     }
 
     /**
@@ -53,7 +53,7 @@ class PageController extends Controller
      */
     public function getArticle(Article $article)
     {
-        return view('app.content', ['object' => $article]);
+        return view('themes.editorial.content', ['object' => $article]);
     }
 
     /**
