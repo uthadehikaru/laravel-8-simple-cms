@@ -16,7 +16,7 @@
         </header>
         <p>{{ $about->description }}</p>
         <ul class="actions">
-            <li><a href="{{ $about->link }}" class="button big">Learn More</a></li>
+            <li><a href="{{ $about->link }}" class="button big">@lang('app.read_more')</a></li>
         </ul>
     </div>
     @if($about->thumbnail)

@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         \DB::table('pages')->delete();
         \App\Models\Page::factory(1)->create([
             'parent_id' => null,
-            'title' => 'About',
+            'title' => 'Tentang Kami',
         ]);
     }
 

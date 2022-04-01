@@ -8,23 +8,23 @@ return [
     |--------------------------------------------------------------------------
     */
     'buttons' => [
-        'share' => 'Share',
+        'share' => 'Bagikan',
         'tweet' => 'Tweet'
     ],
     'footer' => [
-        'about'  => 'About Us',
-        'latest' => 'Latest Articles',
-        'share'  => 'Spread the Word',
+        'about'  => 'Tentang Kami',
+        'latest' => 'Artikel Terbaru',
+        'share'  => 'Bagikan',
         'text'   => 'This is just a simple Laravel CMS with a simple UI to help you make things faster and concentrate on your project\'s logic instead of recreating the boilerplate everytime.',
-        'url'    => 'https://github.com/ozdemirburak/laravel-8-simple-cms'
+        'url'    => 'https://github.com/uthadehikaru/laravel-8-simple-cms'
     ],
     'pagination' => [
-        'next'     => 'Next &raquo;',
-        'previous' => '&laquo; Previous',
+        'next'     => 'Selanjutnya &raquo;',
+        'previous' => '&laquo; Sebelumnya',
     ],
-    'read_more'    => 'Read More',
-    'category'     => 'Category',
-    'get_in_touch' => 'Get In Touch',
-    'articles'     => 'Articles',
-    'search'       => 'Search',
+    'read_more'    => 'Selengkapnya',
+    'category'     => 'Kategori',
+    'get_in_touch' => 'Terhubung',
+    'articles'     => 'Artikel',
+    'search'       => 'Pencarian',
 ];

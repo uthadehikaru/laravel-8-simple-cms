@@ -41,7 +41,7 @@
                     <!-- Search -->
                         <section id="search" class="alt">
                             <form method="GET" action="{{ route('articles') }}">
-                                <input type="text" name="query" id="query" placeholder="Search" />
+                                <input type="text" name="query" id="query" placeholder="@lang('app.search')" />
                             </form>
                         </section>
 
@@ -66,7 +66,7 @@
                                 @endif
                                 @endforeach
                                 <li>
-                                    <span class="opener">Category</span>
+                                    <span class="opener">@lang('app.category')</span>
                                     <ul>    
                                         @foreach (getCategories() as $category)
                                         <li><a href="{{ $category->link }}">{{ $category->title }}</a></li>
@@ -74,7 +74,7 @@
                                     </ul>
                                 </li>
                                 @auth
-                                <li><a href="{{ route('admin.dashboard.index') }}">Admin Page</a></li>
+                                <li><a href="{{ route('admin.dashboard.index') }}">@lang('admin.root')</a></li>
                                 @else
                                 <li><a href="{{ route('auth.login') }}">Login</a></li>
                                 @endauth
@@ -84,7 +84,7 @@
                     <!-- Section -->
                         <section>
                             <header class="major">
-                                <h2>Get in touch</h2>
+                                <h2>@lang('app.get_in_touch')</h2>
                             </header>
                             @php 
                             $footer = getConfig('footer', true);

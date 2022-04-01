@@ -1,7 +1,7 @@
 <!-- Section -->
 <section>
     <header class="major">
-        <h2>Articles</h2>
+        <h2>@lang('app.articles')</h2>
     </header>
     <div class="posts">
         @foreach ($articles as $article)

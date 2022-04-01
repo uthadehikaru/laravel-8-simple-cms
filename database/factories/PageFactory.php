@@ -24,7 +24,8 @@ class PageFactory extends Factory
     {
         return [
             'content' => implode('<br/><br/>', $this->faker->paragraphs(8)),
-            'description' => $this->faker->sentence(6)
+            'description' => $this->faker->sentence(6),
+            'published_at' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
         ];
     }
 }

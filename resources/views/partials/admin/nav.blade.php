@@ -20,7 +20,7 @@
                 @include('partials.admin.nav.dropdown', ['resource' => 'user', 'icon' => 'users'])
                 <!--  Do not remove line NAVIGATION_FLAG if you want to use CMS generator properly -->
                 <!-- Check the file app/Console/Commands/Cms/Resource.php -->
-                @include('partials.admin.nav.single', ['link' => route('admin.config.web'), 'text' => __('Config'), 'icon' => 'settings'])
+                @include('partials.admin.nav.single', ['link' => route('admin.config.web'), 'text' => __('admin.config.index'), 'icon' => 'settings'])
 				<!--NAVIGATION_FLAG-->
                 @include('partials.admin.nav.single', ['link' => route('elfinder.index'), 'text' => __('admin.elfinder.index'), 'icon' => 'film'])
                 @include('partials.admin.nav.logout', ['class' => 'is-hidden-tablet'])

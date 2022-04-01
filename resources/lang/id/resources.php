@@ -9,28 +9,28 @@ return [
     */
 
     'article' => [
-        'create' => 'Create article',
-        'edit'   => 'Edit article',
+        'create' => 'Buat Artikel',
+        'edit'   => 'Ubah Artikel',
         'fields' => [
-            'category_id'  => 'Category',
-            'content'      => 'Content',
-            'description'  => 'Description',
-            'published_at' => 'Published At',
-            'title'        => 'Article Title',
+            'category_id'  => 'Kategori',
+            'content'      => 'Konten',
+            'description'  => 'Deskripsi',
+            'published_at' => 'Dipublikasi pada',
+            'title'        => 'Artikel Judul',
         ],
-        'index'  => 'Articles',
-        'show'   => 'Show article'
+        'index'  => 'Artikel',
+        'show'   => 'Tampilkan Artikel'
     ],
     'category' => [
-        'create' => 'Create category',
-        'edit'   => 'Edit category',
+        'create' => ' Buat Kategori',
+        'edit'   => ' Ubah Kategori',
         'fields' => [
-            'article_count' => 'Article Count',
-            'description'   => 'Description',
-            'title'         => 'Category Title'
+            'article_count' => 'Jumlah Artikel',
+            'description'   => 'Deskripsi',
+            'title'         => 'Judul Kategori'
         ],
-        'index'  => 'Categories',
-        'show'   => 'Show category'
+        'index'  => 'Kategori',
+        'show'   => ' Tampilkan Kategori'
     ],
     'dashboard' => [
         'fields' => [
@@ -58,60 +58,60 @@ return [
             'visits_today'    => 'Visits Today',
             'world_visitors'  => 'World Visitor Distribution'
         ],
-        'index' => 'Dashboard'
+        'index' => 'Dasbor'
     ],
     'elfinder' => [
         'index' => 'File Manager',
     ],
     'page' => [
-        'create' => 'Create page',
-        'edit'   => 'Edit page',
+        'create' => ' Buat Halaman',
+        'edit'   => ' Ubah Halaman',
         'fields' => [
-            'content'      => 'Content',
-            'description'  => 'Description',
+            'content'      => 'Konten',
+            'description'  => 'Deskripsi',
             'parent_id'    => 'Parent',
-            'title'        => 'Title',
-            'published_at' => 'Published At',
+            'title'        => 'Judul',
+            'published_at' => 'Dipublikasi pada',
         ],
-        'index'  => 'Pages',
-        'show'   => 'Show page'
+        'index'  => 'Halaman',
+        'show'   => ' Tampilkan Halaman'
     ],
     'parent' => [
         'fields' => [
-            'title' => 'Parent Page',
+            'title' => 'Halaman Induk',
         ]
     ],
     'user' => [
-        'create' => 'Create user',
-        'edit'   => 'Edit user',
+        'create' => ' Buat Pengguna',
+        'edit'   => ' Ubah Pengguna',
         'fields' => [
             'email'                 => 'Email',
             'ip_address'            => 'IP',
-            'logged_in_at'          => 'Login At',
-            'logged_out_at'         => 'Logout At',
+            'logged_in_at'          => 'Login pada',
+            'logged_out_at'         => 'Logout pada',
             'password'              => 'Password',
-            'password_confirmation' => 'Password Confirm'
+            'password_confirmation' => 'Konfirmasi Password'
         ],
-        'index'  => 'Users',
-        'show'   => 'Show user'
+        'index'  => 'Pengguna',
+        'show'   => ' Tampilkan Pengguna'
     ],
     'config' => [
-        'create' => 'Create a Config',
-        'edit'   => 'Edit a Config',
+        'create' => ' Buat Pengaturan',
+        'edit'   => ' Ubah Pengaturan',
         'fields' => [
           'key'     => 'Key',
-          'content' => 'Content',
+          'content' => 'Konten',
         ],
         'logo'    => 'Logo',
-        'about'   => 'About Page',
-        'desc'    => 'Description',
-        'phone'   => 'Phone',
+        'about'   => 'Halaman Tentang',
+        'desc'    => 'Deskripsi',
+        'phone'   => 'Telepon',
         'email'   => 'Email',
-        'address'   => 'Address',
-        'facebook_url'   => 'Facebook URL',
-        'twitter_url'   => 'Twitter URL',
-        'instagram_url'   => 'Instagram URL',
-        'index'  => 'Configs',
-        'show'   => 'Show a Config'
+        'address'   => 'Alamat',
+        'facebook_url'   => 'Link Facebook',
+        'twitter_url'   => 'Link Twitter',
+        'instagram_url'   => 'Link Instagram',
+        'index'  => 'Pengaturan',
+        'show'   => ' Tampilkan Pengaturan'
     ]
 ];
