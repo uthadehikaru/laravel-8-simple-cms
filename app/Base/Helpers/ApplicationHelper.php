@@ -49,6 +49,10 @@ if (!function_exists('getImage')) {
         if (is_object($object) && isset($object->$property)) {
             return asset($object->$property);
         }
+        $logo = getConfig('logo');
+        if($logo){
+            $object = asset(getLogo($logo));
+        }
         return is_string($object) ? $object : asset('i/icons/android-chrome-512x512.png');
     }
 }
@@ -206,5 +210,20 @@ if (!function_exists('icon')) {
             return '<i data-feather="' . $icon . '"></i>';
         }
         return '<i class="' . $class . '" data-feather="' . $icon . '"></i>';
+    }
+}
+
+if (!function_exists('getLogo')) {
+    /**
+     * @param string $name
+     *
+     * @return string
+     */
+    function getLogo($name)
+    {
+        $folder = "i/icons/";
+        if(getConfig('logo'))
+            $folder = "storage/uploads/logo/";
+        return asset($folder.$name);
     }
 }

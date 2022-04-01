@@ -8,11 +8,32 @@
             @include('partials.admin.errors')
 
             <div class="field">
+                <div class="file is-large has-name">
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="logo">
+                        <div class="file-cta">
+                            <div class="file-icon">{!! icon('upload-cloud') !!}</div>
+                            <div class="file-label">{{ __('Logo') }}</div>
+                        </div>
+                        @if($logo)
+                            <div class="file-name">
+                                <a target="_blank" rel="noopener" href="{{ asset('storage/uploads/logo/'.$logo) }}">{{ $logo }}</a>
+                            </div>
+                        @else
+                            <div class="file-name is-hidden"></div>
+                        @endif
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="field">
                 <label class="label">{{ __('About Page') }}</label>
                 <div class="control">
                     <div class="select is-medium is-fullwidth">
                         <select name="about">
-                            <option value="{{ null }}">{{ __('admin.none') }}</option>
+                            <option value="0">{{ __('admin.none') }}</option>
                             @foreach ($pages as $page)
                                 <option {{ $about==$page->id ? 'selected' : '' }} value="{{ $page->id }}">{{ $page->title }}</option>
                             @endforeach

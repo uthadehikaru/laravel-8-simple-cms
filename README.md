@@ -86,6 +86,7 @@ If you do not have node and npm installed, follow one of the techniques explaine
 Then, to install our boilerplate project's asset dependencies, run `npm install`. Finally to combine the 
 javascript and style files run `npm run production`.
 
+Run `php artisan storage:link` to create symbolic link for storage link on public folder
 -----
 <a name="step3"></a>
 ### Step 3: Serve

@@ -8,6 +8,7 @@ use App\Models\Config;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Intervention\Image\Facades\Image;
 
 class ConfigController extends AdminController
 {
@@ -32,6 +33,7 @@ class ConfigController extends AdminController
     public function web()
     {
         $data['t'] = 'Config';
+        $data['logo'] = getConfig('logo');
         $data['footer'] = getConfig('footer', true);
         $data['social'] = getConfig('socials', true);
         $data['about'] = getConfig('hero');
@@ -45,6 +47,35 @@ class ConfigController extends AdminController
     {
         $data = $request->all();
 
+        if($request->has('logo')){
+            $image = $request->file('logo');
+            $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME).".png";
+            $destinationPath = storage_path('app\public\uploads\logo');
+            $imgFile = Image::make($image->getRealPath());
+            $imgFile->resize(512, 512, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'\android-chrome-512x512.png');
+            $imgFile->resize(512, 512, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'\\'.$filename);
+            $imgFile->resize(192, 192, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'\android-chrome-192x192.png');
+            $imgFile->resize(180, 180, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'\apple-touch-icon.png');
+            $imgFile->resize(150, 150, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'\mstile-150x150.png');
+            $imgFile->resize(32, 32, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'\favicon-32x32.png');
+            $imgFile->resize(16, 16, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'\favicon-16x16.png');
+            Config::where('key','logo')->update(['content'=>$filename]);
+        }
+
         $footer = [
             'desc' => $data['desc'],
             'email' => $data['email'],
@@ -54,7 +85,7 @@ class ConfigController extends AdminController
         Config::where('key','footer')->update(['content'=>json_encode($footer)]);
         
         $socials = [
-            'facebook_url' => $data['desc'],
+            'facebook_url' => $data['facebook_url'],
             'twitter_url' => $data['twitter_url'],
             'instagram_url' => $data['instagram_url'],
         ];

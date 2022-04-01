@@ -89,6 +89,10 @@ table.dataTable thead .sorting_desc:after {
   height: 333px;
 }
 
+.navbar {
+  font-size: 0.8em;
+}
+
 @media (max-width: 768px) {
   .no-box-shadow-mobile {
     box-shadow: none;
