@@ -74,7 +74,7 @@
                                     </ul>
                                 </li>
                                 @auth
-                                <li><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></li>
+                                <li><a href="{{ route('admin.dashboard.index') }}">Admin Page</a></li>
                                 @else
                                 <li><a href="{{ route('auth.login') }}">Login</a></li>
                                 @endauth

@@ -17,6 +17,7 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->string('slug');
             $table->foreignId('parent_id')->nullable();
+            $table->date('published_at')->nullable();
             $table->string('title');
             $table->string('description');
             $table->text('content');

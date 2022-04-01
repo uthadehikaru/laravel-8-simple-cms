@@ -17,7 +17,7 @@ class PageDataTable extends DataTableController
      *
      * @var array
      */
-    protected $columns = ['title'];
+    protected $columns = ['title','published_at'];
 
     /**
      * Columns of relations, relation name as key, relation property as value

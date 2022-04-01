@@ -10,6 +10,8 @@ use QCod\ImageUp\HasImageUploads;
 class Page extends SluggableModel
 {
     use HasFactory, HasImageUploads;
+    
+    protected $dates = ['published_at'];
 
     protected static $imageFields = [
         'thumbnail' => [
@@ -17,6 +19,16 @@ class Page extends SluggableModel
             'placeholder' => '/images/placeholder.jpg',
         ]
     ];
+
+    /**
+     * @param $query
+     *
+     * @return mixed
+     */
+    public function scopePublished($query)
+    {
+        return $query->where('published_at', '<=', now())->orderBy('published_at', 'desc');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

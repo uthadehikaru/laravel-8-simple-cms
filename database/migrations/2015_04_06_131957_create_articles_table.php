@@ -16,14 +16,14 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
-            $table->date('published_at');
+            $table->date('published_at')->nullable();
             $table->string('slug');
             $table->string('title');
             $table->string('description');
             $table->text('content');
             $table->string('thumbnail')->nullable();
             $table->timestamps();
-            $table->index(['published_at', 'slug']);
+            $table->index(['slug']);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }

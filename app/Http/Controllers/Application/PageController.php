@@ -39,7 +39,7 @@ class PageController extends Controller
         return view('themes.editorial.articles', [
             'title' => $category->title,
             'description' => $category->description,
-            'articles' => Article::latest('published_at')->where('category_id', $category->id)->paginate(4)
+            'articles' => Article::published()->where('category_id', $category->id)->paginate(4)
         ]);
     }
 
@@ -71,7 +71,7 @@ class PageController extends Controller
     {
         $title = 'Articles';
         
-        $articles = Article::latest('published_at');
+        $articles = Article::published();
         if($request->has('query')){
             $title = "Search Result";
             $articles->orWhere('title','like','%'.$request->get('query').'%');

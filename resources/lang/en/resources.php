@@ -71,6 +71,7 @@ return [
             'description'  => 'Description',
             'parent_id'    => 'Parent',
             'title'        => 'Title',
+            'published_at' => 'Published At',
         ],
         'index'  => 'Pages',
         'show'   => 'Show page'

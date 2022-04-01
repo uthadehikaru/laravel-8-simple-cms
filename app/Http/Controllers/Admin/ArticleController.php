@@ -17,7 +17,6 @@ class ArticleController extends AdminController
         'content'      => 'required|string',
         'category_id'  => 'required|integer',
         'description'  => 'required|string|max:200',
-        'published_at' => 'required|string',
         'title'        => 'required|string|max:200'
     ];
 

@@ -93,9 +93,7 @@ class ConfigController extends AdminController
         
         Config::where('key','hero')->update(['content'=>$data['about']]);
 
-        Cache::forget('footer');
-        Cache::forget('socials');
-        Cache::forget('hero');
+        Cache::flush();
         return back()->with('message','Updated succesfully');
     }
 

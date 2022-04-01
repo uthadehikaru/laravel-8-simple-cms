@@ -133,7 +133,7 @@ if (!function_exists('getMenu')) {
     function getMenu()
     {
         return cache()->remember('menu', 60, function () {
-            return \App\Models\Page::where('parent_id', null)->with('children')->get();
+            return \App\Models\Page::published()->where('parent_id', null)->with('children')->get();
         });
     }
 }
