@@ -24,8 +24,7 @@ class PageFactory extends Factory
     {
         return [
             'content' => implode('<br/><br/>', $this->faker->paragraphs(8)),
-            'description' => $this->faker->sentence(6),
-            'title' => Str::title($this->faker->words(2, true))
+            'description' => $this->faker->sentence(6)
         ];
     }
 }

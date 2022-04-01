@@ -20,6 +20,7 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->text('content');
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
             $table->index('slug');
         });

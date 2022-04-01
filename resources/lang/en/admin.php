@@ -46,7 +46,8 @@ $translation = [
         'save'          => 'Save',
         'updated_at'    => 'Updated at',
         'uploaded'      => 'Uploaded file',
-        'yes'           => 'Yes'
+        'yes'           => 'Yes',
+        'thumbnail'    => 'Thumbnail',
     ],
     'last_login'        => 'Last Login',
     'none'              => 'None',

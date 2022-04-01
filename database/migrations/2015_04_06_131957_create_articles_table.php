@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->text('content');
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
             $table->index(['published_at', 'slug']);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

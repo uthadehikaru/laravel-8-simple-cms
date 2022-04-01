@@ -16,7 +16,7 @@ return [
             'content'      => 'Content',
             'description'  => 'Description',
             'published_at' => 'Published At',
-            'title'        => 'Article Title'
+            'title'        => 'Article Title',
         ],
         'index'  => 'Articles',
         'show'   => 'Show article'
@@ -93,5 +93,15 @@ return [
         ],
         'index'  => 'Users',
         'show'   => 'Show user'
+    ],
+    'config' => [
+        'create' => 'Create a Config',
+        'edit'   => 'Edit a Config',
+        'fields' => [
+          'key'     => 'Key',
+          'content' => 'Content',
+        ],
+        'index'  => 'Configs',
+        'show'   => 'Show a Config'
     ]
 ];

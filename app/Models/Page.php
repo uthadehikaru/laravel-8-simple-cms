@@ -5,10 +5,18 @@ namespace App\Models;
 use App\Base\SluggableModel;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use QCod\ImageUp\HasImageUploads;
 
 class Page extends SluggableModel
 {
-    use HasFactory;
+    use HasFactory, HasImageUploads;
+
+    protected static $imageFields = [
+        'thumbnail' => [
+            'width' => 800,
+            'placeholder' => '/images/placeholder.jpg',
+        ]
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

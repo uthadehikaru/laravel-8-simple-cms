@@ -162,6 +162,24 @@ if (!function_exists('getCategories')) {
     }
 }
 
+if (!function_exists('getConfig')) {
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
+    function getConfig($key, $isJson=false)
+    {
+        return cache()->remember($key, 60, function () use($key, $isJson) {
+            $config = \App\Models\Config::where('key',$key)->first();
+            $content = "";
+            if($config)
+                $content = $config->content;
+
+            return $isJson?json_decode($content):$content;
+        });
+    }
+}
+
 if (!function_exists('active')) {
     /**
      * @param object $object

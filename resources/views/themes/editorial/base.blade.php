@@ -52,10 +52,19 @@
                     <!-- Header -->
                         <header id="header">
                             <a href="{{ url('') }}" class="logo"><strong>@yield('title')</strong></a>
+                            @php
+                                $socials = getConfig('socials', true);
+                            @endphp
                             <ul class="icons">
-                                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                @if($socials->twitter_url)
+                                <li><a href="{{ $socials->twitter_url }}" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                @endif
+                                @if($socials->facebook_url)
+                                <li><a href="{{ $socials->facebook_url }}" target="_blank" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                @endif
+                                @if($socials->instagram_url)
+                                <li><a href="{{ $socials->instagram_url }}" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                @endif
                             </ul>
                         </header>
 
@@ -70,7 +79,7 @@
 
                     <!-- Search -->
                         <section id="search" class="alt">
-                            <form method="post" action="#">
+                            <form method="GET" action="{{ route('articles') }}">
                                 <input type="text" name="query" id="query" placeholder="Search" />
                             </form>
                         </section>
@@ -103,39 +112,32 @@
                                         @endforeach
                                     </ul>
                                 </li>
+                                @auth
+                                <li>
+                                <form method="POST" action="{{ route('auth.logout') }}">
+                                @csrf
+                                    <a href="#" onclick="$(this).closest('form').submit()">{{ __('auth.logout') }}</a>
+                                </form>
+                                </li>
+                                @else
                                 <li><a href="{{ route('auth.login') }}">Login</a></li>
+                                @endauth
                             </ul>
                         </nav>
 
                     <!-- Section -->
                         <section>
                             <header class="major">
-                                <h2>Recent Articles</h2>
-                            </header>
-                            <div class="mini-posts">
-                                @foreach(getFooterArticles() as $footerArticle)
-                                <article>
-                                    <a href="{{ $footerArticle->link }}" class="image"><img src="/images/pic07.jpg" alt="" /></a>
-                                    <p>{{ $footerArticle->title }}</p>
-                                </article>
-                                @endforeach
-                            </div>
-                            <ul class="actions">
-                                <li><a href="#" class="button">More</a></li>
-                            </ul>
-                        </section>
-
-                    <!-- Section -->
-                        <section>
-                            <header class="major">
                                 <h2>Get in touch</h2>
                             </header>
-                            <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+                            @php 
+                            $footer = getConfig('footer', true);
+                            @endphp
+                            <p>{{ $footer->desc }}</p>
                             <ul class="contact">
-                                <li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-                                <li class="icon solid fa-phone">(000) 000-0000</li>
-                                <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-                                Nashville, TN 00000-0000</li>
+                                <li class="icon solid fa-envelope"><a href="#">{{ $footer->email }}</a></li>
+                                <li class="icon solid fa-phone">{{ $footer->phone }}</li>
+                                <li class="icon solid fa-home">{{ $footer->address }}</li>
                             </ul>
                         </section>
 

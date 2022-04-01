@@ -12,9 +12,15 @@
         <h1>{{ $object->title }}</h1>
     </header>
 
-    <span class="image main"><img src="/images/pic11.jpg" alt="" /></span>
+    @if($object->thumbnail)
+    <span class="image main"><img src="{{ $object->imageUrl('thumbnail') }}" alt="" /></span>
+    @endif
 
     {!! $object->content !!}
 
+    <p class="mt-2 font-italic">
+        @if($object->category)
+        <a href="{{ $object->category->link }}">{{ $object->category->title }}</a> | {{ $object->localized_published_at }}</p>
+        @endif
 </section>
 @endsection

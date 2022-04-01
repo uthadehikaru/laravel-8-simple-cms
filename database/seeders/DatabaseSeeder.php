@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->addUsers();
         $this->addContent();
+        $this->addConfigs();
     }
 
     /**
@@ -36,9 +37,33 @@ class DatabaseSeeder extends Seeder
         \DB::table('articles')->delete();
         \App\Models\Article::factory(40)->create();
         \DB::table('pages')->delete();
-        \App\Models\Page::factory(6)->create(['parent_id' => null]);
-        foreach (range(4, 5) as $p) {
-            \App\Models\Page::factory(2)->create(['parent_id' => $p]);
-        }
+        \App\Models\Page::factory(1)->create([
+            'parent_id' => null,
+            'title' => 'About',
+        ]);
+    }
+
+    /**
+     * Add Config
+     */
+    public function addConfigs(): void
+    {
+        \DB::table('configs')->delete();
+        \App\Models\Config::create(['key' => 'hero', 'content' => 1]);
+        $footer = [
+            'desc'=>'Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.',
+            'email'=>'email@welcome.com',
+            'phone' =>'(000) 000-0000',
+            'address' => '1234 Somewhere Road #8254, Nashville, TN 00000-0000',
+        ];
+        \App\Models\Config::create(['key' => 'footer', 'content' => json_encode($footer)]);
+        $socials = [
+            'facebook_url'=>'https://facebook.com/',
+            'twitter_url'=>'https://twitter.com/',
+            'instagram_url' =>'https://instagram.com/',
+        ];
+        \App\Models\Config::create(['key' => 'socials', 'content' => json_encode($socials)]);
+
+        \Cache::flush();
     }
 }
