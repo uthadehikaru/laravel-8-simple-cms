@@ -9,6 +9,7 @@ use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
+use Storage;
 
 class ConfigController extends AdminController
 {
@@ -51,6 +52,7 @@ class ConfigController extends AdminController
             $image = $request->file('logo');
             $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME).".png";
             $destinationPath = storage_path('app\public\uploads\logo');
+            Storage::disk('uploads')->makeDirectory('logo');
             $imgFile = Image::make($image->getRealPath());
             $imgFile->resize(512, 512, function ($constraint) {
                 $constraint->aspectRatio();
