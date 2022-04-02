@@ -51,7 +51,7 @@ class ConfigController extends AdminController
         if($request->has('logo')){
             $image = $request->file('logo');
             $filename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME).".png";
-            $destinationPath = storage_path('app\public\uploads\logo');
+            $destinationPath = storage_path('app/public/uploads/logo');
             Storage::disk('uploads')->makeDirectory('logo');
             $imgFile = Image::make($image->getRealPath());
             $imgFile->resize(512, 512, function ($constraint) {
