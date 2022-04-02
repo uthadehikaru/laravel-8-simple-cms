@@ -9,3 +9,4 @@ Route::post('/upload', ['as' => 'upload', 'uses' => 'DashboardController@upload'
 Route::get('/config/web', ['as' => 'config.web', 'uses' => 'ConfigController@web']);
 Route::post('/config/web', ['as' => 'config.web', 'uses' => 'ConfigController@webUpdate']);
 Route::resource('config', 'ConfigController');
+Route::get('logs', ['as' => 'logs', 'uses' => '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index']);

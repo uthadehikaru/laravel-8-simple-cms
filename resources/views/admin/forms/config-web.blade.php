@@ -3,7 +3,15 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <h1 class="title">@lang('admin.config.index')</h1>
+            <div class="columns">
+                <div class="column is-four-fifths">
+                    <h1 class="title">@lang('admin.config.index')</h1>
+                </div>
+                <div class="column">
+                    <a href="{{ route('admin.config.index') }}" class="button is-info">List</a>
+                    <a href="{{ route('admin.logs') }}" class="button is-warning">Logs</a>
+                </div>
+            </div>
             <form method="POST" enctype="multipart/form-data" action="{{ route('admin.config.web') }}">
             @include('partials.admin.errors')
 
