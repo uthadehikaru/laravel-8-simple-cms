@@ -56,25 +56,25 @@ class ConfigController extends AdminController
             $imgFile = Image::make($image->getRealPath());
             $imgFile->resize(512, 512, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'\android-chrome-512x512.png');
+            })->save($destinationPath.'/android-chrome-512x512.png');
             $imgFile->resize(512, 512, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'\\'.$filename);
+            })->save($destinationPath.'/'.$filename);
             $imgFile->resize(192, 192, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'\android-chrome-192x192.png');
+            })->save($destinationPath.'/android-chrome-192x192.png');
             $imgFile->resize(180, 180, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'\apple-touch-icon.png');
+            })->save($destinationPath.'/apple-touch-icon.png');
             $imgFile->resize(150, 150, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'\mstile-150x150.png');
+            })->save($destinationPath.'/mstile-150x150.png');
             $imgFile->resize(32, 32, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'\favicon-32x32.png');
+            })->save($destinationPath.'/favicon-32x32.png');
             $imgFile->resize(16, 16, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.'\favicon-16x16.png');
+            })->save($destinationPath.'/favicon-16x16.png');
             Config::where('key','logo')->update(['content'=>$filename]);
         }
 
