@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ empty($t) ? (is_array($title = __(Route::getCurrentRoute()->getName())) ? $title['title'] : $title) : $t }} | {{ config('settings.site_title') }}</title>
     <link rel="stylesheet" type="text/css" href="{{ asset(mix('dist/css/admin.css')) }}">
-    <link rel="shortcut icon" href="{{ asset('i/icons/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ getLogo('favicon-32x32.png') }}">
     @stack('styles')
 </head>
 <body>

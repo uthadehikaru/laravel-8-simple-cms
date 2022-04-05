@@ -22,7 +22,7 @@ class PageController extends Controller
             $about = Page::find($about_id);
         return view('themes.editorial.home', [
             'hero' => getConfig('hero', true),
-            'title' => getTitle(),
+            'title' => null,
             'description' => getDescription(),
             'articles' => Article::published()->paginate(4),
             'about' => $about,

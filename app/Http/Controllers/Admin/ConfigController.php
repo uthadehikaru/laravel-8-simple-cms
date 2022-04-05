@@ -33,7 +33,7 @@ class ConfigController extends AdminController
 
     public function web()
     {
-        $data['t'] = 'Config';
+        $data['t'] = __('admin.config.index');
         $data['logo'] = getConfig('logo');
         $data['footer'] = getConfig('footer', true);
         $data['social'] = getConfig('socials', true);
